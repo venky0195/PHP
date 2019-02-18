@@ -216,4 +216,51 @@ class UtilityAlgo
             throw $th;
         }
     }
+    public static function isPrimeNew($initial, $final)
+    {
+        try {
+            $flag = 0;
+            $k = 0;
+            $prime = array();
+
+            for ($index1 = $initial; $index1 <= $final; $index1++) {
+                for ($index2 = 2; $index2 < $index1; $index2++) {
+                    if ($index1 % $index2 == 0) {
+                        $flag = 0;
+                        break;
+                    } else {
+                        $flag = 1;
+                    }
+                }
+                if ($flag == 1) {
+                    $prime[$k++] = $index1;
+                }
+            }
+            return $prime;
+        } catch (\Throwable $th) {
+            throw $th;
+        }
+    }
+    public static function primeNumberArr($n)
+    {
+        $prime = 2;
+        $primeArr = array();
+        $count = 0;
+        while ($prime < $n) {
+            $flag = true;
+            for ($i = 2; $i <= $prime / 2; $i++) {
+                if ($prime % $i == 0) {
+                    $flag = false;
+                    break;
+                }
+            }
+            if ($flag == true) {
+                $primeArr[$count] = $prime;
+                $count++;
+            }
+            $prime++;
+        }
+        return $primeArr;
+    }
+
 }
