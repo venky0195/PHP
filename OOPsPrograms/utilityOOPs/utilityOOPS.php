@@ -1,6 +1,12 @@
 <?php
 class utilOOPs
 {
+    /**
+     * @description : function uses regular expressions and replaces the values with the given input
+     * @param : $name-> FirstName(String)
+     * @param : $fullName -> string value
+     * @param : $mobileNumber -> 10 digit number
+     */
     public static function stringReplace($name, $fullName, $mobileNumber)
     {
         try {
@@ -15,7 +21,7 @@ class utilOOPs
             $string = preg_replace("/<+\w+\s\w+>+/", " " . $fullName, $string);
             //replacing date pattern with current date
             $string = preg_replace("/x*\/x*\/x*/", date("d/m/Y"), $string);
-            return"$string";
+            return "$string";
         } catch (\Throwable $th) {
             throw $th;
         }
